@@ -14,24 +14,26 @@
 
 
 <ion-content padding>
- <form (ngSubmit)="submit(f.value)" #f="ngForm">
+
+  <form (ngSubmit)="submit(f.value)" #f="ngForm">
  	
-	<ion-list>
+  	<ion-list>
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-select name="email" [(ngModel)]="user.email">
+          <ion-option *ngFor="let evaluator of users">{{evaluator.email}}</ion-option>
+        </ion-select>
+      </ion-item>
 
-  <ion-item>
-    <ion-label fixed>Username</ion-label>
-    <ion-input type="text" name='email' value="" [ngModel]='user.email' required></ion-input>
-  </ion-item>
-
-  	<ion-item>
-	    <ion-label fixed>Password</ion-label>
-	    <ion-input type="password" name='pass' [ngModel]='user.pass' required></ion-input>
-  	</ion-item>
-  	<ion-item>
+    	<ion-item>
+  	    <ion-label fixed>Password</ion-label>
+  	    <ion-input type="password" name='password' [ngModel]='user.password' required></ion-input>
+    	</ion-item>
+    	<ion-item>
     	<button ion-button  type="submit" color="secondary" [disabled]="!f.valid">Enviar</button>
-	</ion-item>
+  	</ion-item>
 
-</ion-list>
+    </ion-list>
  </form>
 
 </ion-content>
